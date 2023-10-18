@@ -1,0 +1,26 @@
+tr:nth-child(even) {
+    background-color: lightgray;
+}
+
+footer {
+    box-sizing: border-box;
+    width: calc(100% - 10px);
+    height: 2em;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+}
+
+#filters div {
+    display: inline-block;
+}
+
+#state {
+    width: 3em;
+}
+
+@media only screen and (max-width: 600px) {
+    #filters div {
+        display: block;
+    }
+}

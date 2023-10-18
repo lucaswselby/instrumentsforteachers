@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href=".\main.css">
+        <meta charset="UTF-8">
+        <meta name="keywords" content="rent, rental, teacher, instrument, donate, school, violin, viola, cello, bass, flute, clarinet, trumpet, cornet, trombone, drums, piccolo, percussion, bells, donation, kit, oboe, sax, saxophone, xylophone, marimba, french horn, baritone, euphonium, band, orchestra, tax, credit, music and arts, music & arts">
+        <meta name="description" content="Donate your instrument to a school band or orchestra program.">
+        <meta name="author" content="Lucas Selby">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Favicon -->
+        <link rel="icon" href="./favicon.png" type="image/x-icon">
+    </head>
+
+    <body>
+        <main>
+            <div id="filters">
+                <div>
+                    <label for="state">State:</label>
+                    <input list="states" name="state" id="state" value="AZ">
+                    <datalist id="states">
+                        <option value="AL"></option>
+                        <option value="AK"></option>
+                        <option value="AZ"></option>
+                        <option value="AR"></option>
+                        <option value="CA"></option>
+                        <option value="CO"></option>
+                        <option value="CT"></option>
+                        <option value="DE"></option>
+                        <option value="FL"></option>
+                        <option value="GA"></option>
+                        <option value="HI"></option>
+                        <option value="ID"></option>
+                        <option value="IL"></option>
+                        <option value="IN"></option>
+                        <option value="IA"></option>
+                        <option value="KS"></option>
+                        <option value="KY"></option>
+                        <option value="LA"></option>
+                        <option value="ME"></option>
+                        <option value="MD"></option>
+                        <option value="MA"></option>
+                        <option value="MI"></option>
+                        <option value="MN"></option>
+                        <option value="MS"></option>
+                        <option value="MO"></option>
+                        <option value="MT"></option>
+                        <option value="NE"></option>
+                        <option value="NV"></option>
+                        <option value="NH"></option>
+                        <option value="NJ"></option>
+                        <option value="NM"></option>
+                        <option value="NY"></option>
+                        <option value="NC"></option>
+                        <option value="ND"></option>
+                        <option value="OH"></option>
+                        <option value="OK"></option>
+                        <option value="OR"></option>
+                        <option value="PA"></option>
+                        <option value="RI"></option>
+                        <option value="SC"></option>
+                        <option value="SD"></option>
+                        <option value="TN"></option>
+                        <option value="TX"></option>
+                        <option value="UT"></option>
+                        <option value="VT"></option>
+                        <option value="VA"></option>
+                        <option value="WA"></option>
+                        <option value="WV"></option>
+                        <option value="WI"></option>
+                        <option value="WY"></option>
+                    </datalist>
+                </div>
+                <div>
+                    <label for="program">Program:</label>
+                    <select name="program" id="program">
+                        <option value="B">Band</option>
+                        <option value="O">Orchestra</option>
+                    </select>
+                </div>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>School</th>
+                        <th>Teacher</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+            <form action="process_form.php" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="Lucas" required><br>
+              
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="lucaswselby@gmail.com" required><br>
+              
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required>It works!</textarea><br>
+              
+                <input type="submit" value="Submit">
+              </form>              
+        </main>
+
+        <footer>
+            This is an open source application: <a href="https://github.com/lucaswselby/instrumentsforteachers" aria-label="GitHub link for InstrumentsForTeachers files" target="_blank">github.com/lucaswselby/instrumentsforteachers</a>
+        </footer>
+    </body>
+
+    <script type="text/javascript" src=".\main.js"></script>
+</html>
