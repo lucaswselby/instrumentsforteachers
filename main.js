@@ -58,7 +58,7 @@ const displayPrograms = () => {
             document.getElementsByTagName("TBODY")[0].innerHTML += `<tr>
                 <td>${program.school}</td>
                 <td><a href="tel:+1${program.phone.replaceAll("(", "").replaceAll(") ", "").replaceAll("-", "")}">${program.phone}</a></td>
-                <td><a href="geo:${program.geo}">${program.address}</a></td>
+                <td><a href="geo:${program.geo}" target="_blank">${program.address}</a></td>
                 <td>${program.teacher}</td>
                 <td>${program.email}</td>
                 <td>${program.sizes.join(", ")}</td>
