@@ -85,25 +85,27 @@
                 <thead>
                     <tr>
                         <th>School</th>
+                        <th>Phone</th>
+                        <th>Address</th>
                         <th>Teacher</th>
+                        <th>Email</th>
+                        <th>Size Preferrence</th>
+                        <th>Need</th>
                     </tr>
                 </thead>
                 <tbody>
                 </tbody>
             </table>
 
-            <form action="new_program.php" method="post">
+            <form action="https://formspree.io/f/mnqklklq" method="POST">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" value="Lucas" required><br>
-              
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" value="lucaswselby@gmail.com" required><br>
-              
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="4" required>It works!</textarea><br>
-              
-                <input type="submit" value="Submit">
-              </form>              
+                <input type="text" name="name" id="name" value="Lucas"><br>
+                <div>
+                    <input type="submit" value="Submit">
+                    <div>Powered by Formspree</div>
+                </div>
+            </form>
+                           
         </main>
 
         <footer>
