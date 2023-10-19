@@ -39,7 +39,7 @@ class Program {
     }
 }
 
-const rhodesO = new Program("AZ", "O", "Rhodes Junior High School", "4804722300", "1860 S Longmore, Mesa, AZ 85202", "Sarina Mountcastle", "samountcastle@mpsaz.org", ["1/2 Violins"], "October 18, 2023");
+const rhodesO = new Program("AZ", "O", "Rhodes Junior High School", "4804722300", "1860 S Longmore, Mesa, AZ 85202", "Sarina Mountcastle", "samountcastle@mpsaz.org", ["3/4 Violins", "4/4 Violins"], "October 18, 2023");
 const rhodesB = new Program("AZ", "B", "Rhodes Junior High School", "4804722300", "1860 S Longmore, Mesa, AZ 85202", "Calle Thuneman", "cfthuneman@mpsaz.org", ["Trumpets"], "October 18, 2023");
 const programs = [rhodesO, rhodesB];
 
