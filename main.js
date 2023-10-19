@@ -1,5 +1,5 @@
 class Program {
-    constructor(state, bo, school, phone, address, teacher, email, sizes, need, updated) {
+    constructor(state, bo, school, phone, address, teacher, email, needs, updated) {
         this._state = state;
         this._bo = bo;
         this._school = school;
@@ -7,8 +7,7 @@ class Program {
         this._address = address;
         this._teacher = teacher;
         this._email = email;
-        this._sizes = sizes;
-        this._need = need;
+        this._needs = needs;
         this._updated = updated;
     }
     get state() {
@@ -32,19 +31,16 @@ class Program {
     get email() {
         return this._email;
     }
-    get sizes() {
-        return this._sizes;
-    }
-    get need() {
-        return this._need;
+    get needs() {
+        return this._needs;
     }
     get updated() {
         return this._updated;
     }
 }
 
-const rhodesO = new Program("AZ", "O", "Rhodes Junior High School", "4804722300", "1860 S Longmore, Mesa, AZ 85202", "Sarina Mountcastle", "samountcastle@mpsaz.org", ["1/2"], "[Need]", "October 18, 2023");
-const rhodesB = new Program("AZ", "B", "Rhodes Junior High School", "4804722300", "1860 S Longmore, Mesa, AZ 85202", "Calle Thuneman", "cfthuneman@mpsaz.org", ["n/a"], "[Need]", "October 18, 2023");
+const rhodesO = new Program("AZ", "O", "Rhodes Junior High School", "4804722300", "1860 S Longmore, Mesa, AZ 85202", "Sarina Mountcastle", "samountcastle@mpsaz.org", ["1/2 Violins"], "October 18, 2023");
+const rhodesB = new Program("AZ", "B", "Rhodes Junior High School", "4804722300", "1860 S Longmore, Mesa, AZ 85202", "Calle Thuneman", "cfthuneman@mpsaz.org", ["Trumpets"], "October 18, 2023");
 const programs = [rhodesO, rhodesB];
 
 // source: https://stackoverflow.com/questions/8358084/regular-expression-to-reformat-a-us-phone-number-in-javascript
@@ -67,8 +63,7 @@ const displayPrograms = () => {
                 <td><a href="https://maps.google.com/maps?q=${program.address}" target="_blank">${program.address}</a></td>
                 <td>${program.teacher}</td>
                 <td><a href="mailto:${program.email}">${program.email}</a></td>
-                <td>${program.sizes.join(", ")}</td>
-                <td>${program.need}</td>
+                <td>${program.needs.join(", ")}</td>
             </tr>`;
         }
     });
