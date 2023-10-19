@@ -43,9 +43,19 @@ class Program {
     }
 }
 
-const rhodesO = new Program("AZ", "O", "Rhodes Junior High School", "(480) 472-2300", "1860 S Longmore, Mesa, AZ 85202", "Sarina Mountcastle", "[Email]", ["[Sizes]"], "[Need]", "October 18, 2023");
-const rhodesB = new Program("AZ", "B", "Rhodes Junior High School", "(480) 472-2300", "1860 S Longmore, Mesa, AZ 85202", "[Band Teacher]", "[Email]", ["n/a"], "[Need]", "October 18, 2023");
+const rhodesO = new Program("AZ", "O", "Rhodes Junior High School", "4804722300", "1860 S Longmore, Mesa, AZ 85202", "Sarina Mountcastle", "[Email]", ["[Sizes]"], "[Need]", "October 18, 2023");
+const rhodesB = new Program("AZ", "B", "Rhodes Junior High School", "4804722300", "1860 S Longmore, Mesa, AZ 85202", "[Band Teacher]", "[Email]", ["n/a"], "[Need]", "October 18, 2023");
 const programs = [rhodesO, rhodesB];
+
+// source: https://stackoverflow.com/questions/8358084/regular-expression-to-reformat-a-us-phone-number-in-javascript
+function formatPhoneNumber(phoneNumberString) {
+    var cleaned = ('' + phoneNumberString).replace(/\D/g, '');
+    var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+    if (match) {
+        return '(' + match[1] + ') ' + match[2] + '-' + match[3];
+    }
+    return null;
+}
 
 const displayPrograms = () => {
     document.getElementsByTagName("TBODY")[0].innerHTML = "";
@@ -53,7 +63,7 @@ const displayPrograms = () => {
         if (program.state === document.getElementById("state").value && program.bo === document.getElementById("program").value) {
             document.getElementsByTagName("TBODY")[0].innerHTML += `<tr>
                 <td>${program.school}</td>
-                <td><a href="tel:+1${program.phone.replaceAll("(", "").replaceAll(") ", "").replaceAll("-", "")}">${program.phone}</a></td>
+                <td><a href="tel:+1${program.phone}">${formatPhoneNumber(program.phone)}</a></td>
                 <td><a href="https://maps.google.com/maps?q=${program.address}" target="_blank">${program.address}</a></td>
                 <td>${program.teacher}</td>
                 <td>${program.email}</td>
