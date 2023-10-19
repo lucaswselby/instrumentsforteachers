@@ -6,10 +6,9 @@ tr:nth-child(even) {
 }
 
 footer {
-    box-sizing: border-box;
     width: calc(100% - 10px);
-    height: 2em;
-    padding: 10px;
+    height: 6em;
+    padding: 10px 0;
     position: absolute;
     bottom: 0;
 }
