@@ -1,11 +1,10 @@
 class Program {
-    constructor(state, bo, school, phone, address, geo, teacher, email, sizes, need, updated) {
+    constructor(state, bo, school, phone, address, teacher, email, sizes, need, updated) {
         this._state = state;
         this._bo = bo;
         this._school = school;
         this._phone = phone;
         this._address = address;
-        this._geo = geo;
         this._teacher = teacher;
         this._email = email;
         this._sizes = sizes;
@@ -27,9 +26,6 @@ class Program {
     get address() {
         return this._address;
     }
-    get geo() {
-        return this._geo;
-    }
     get teacher() {
         return this._teacher;
     }
@@ -47,8 +43,8 @@ class Program {
     }
 }
 
-const rhodesO = new Program("AZ", "O", "Rhodes Junior High School", "(480) 472-2300", "1860 S Longmore, Mesa, AZ 85202", "33.3796425,-111.8710111", "Sarina Mountcastle", "[Email]", ["[Sizes]"], "[Need]", "October 18, 2023");
-const rhodesB = new Program("AZ", "B", "Rhodes Junior High School", "(480) 472-2300", "1860 S Longmore, Mesa, AZ 85202", "33.3796425,-111.8710111", "[Band Teacher]", "[Email]", ["All"], "[Need]", "October 18, 2023");
+const rhodesO = new Program("AZ", "O", "Rhodes Junior High School", "(480) 472-2300", "1860 S Longmore, Mesa, AZ 85202", "Sarina Mountcastle", "[Email]", ["[Sizes]"], "[Need]", "October 18, 2023");
+const rhodesB = new Program("AZ", "B", "Rhodes Junior High School", "(480) 472-2300", "1860 S Longmore, Mesa, AZ 85202", "[Band Teacher]", "[Email]", ["n/a"], "[Need]", "October 18, 2023");
 const programs = [rhodesO, rhodesB];
 
 const displayPrograms = () => {
@@ -58,7 +54,7 @@ const displayPrograms = () => {
             document.getElementsByTagName("TBODY")[0].innerHTML += `<tr>
                 <td>${program.school}</td>
                 <td><a href="tel:+1${program.phone.replaceAll("(", "").replaceAll(") ", "").replaceAll("-", "")}">${program.phone}</a></td>
-                <td><a href="geo:${program.geo}" target="_blank">${program.address}</a></td>
+                <td><a href="https://maps.google.com/maps?q=${program.address}" target="_blank">${program.address}</a></td>
                 <td>${program.teacher}</td>
                 <td>${program.email}</td>
                 <td>${program.sizes.join(", ")}</td>
