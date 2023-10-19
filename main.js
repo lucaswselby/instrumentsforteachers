@@ -43,8 +43,8 @@ class Program {
     }
 }
 
-const rhodesO = new Program("AZ", "O", "Rhodes Junior High School", "4804722300", "1860 S Longmore, Mesa, AZ 85202", "Sarina Mountcastle", "[Email]", ["[Sizes]"], "[Need]", "October 18, 2023");
-const rhodesB = new Program("AZ", "B", "Rhodes Junior High School", "4804722300", "1860 S Longmore, Mesa, AZ 85202", "[Band Teacher]", "[Email]", ["n/a"], "[Need]", "October 18, 2023");
+const rhodesO = new Program("AZ", "O", "Rhodes Junior High School", "4804722300", "1860 S Longmore, Mesa, AZ 85202", "Sarina Mountcastle", "samountcastle@mpsaz.org", ["1/2"], "[Need]", "October 18, 2023");
+const rhodesB = new Program("AZ", "B", "Rhodes Junior High School", "4804722300", "1860 S Longmore, Mesa, AZ 85202", "Calle Thuneman", "cfthuneman@mpsaz.org", ["n/a"], "[Need]", "October 18, 2023");
 const programs = [rhodesO, rhodesB];
 
 // source: https://stackoverflow.com/questions/8358084/regular-expression-to-reformat-a-us-phone-number-in-javascript
@@ -66,7 +66,7 @@ const displayPrograms = () => {
                 <td><a href="tel:+1${program.phone}">${formatPhoneNumber(program.phone)}</a></td>
                 <td><a href="https://maps.google.com/maps?q=${program.address}" target="_blank">${program.address}</a></td>
                 <td>${program.teacher}</td>
-                <td>${program.email}</td>
+                <td><a href="mailto:${program.email}">${program.email}</a></td>
                 <td>${program.sizes.join(", ")}</td>
                 <td>${program.need}</td>
             </tr>`;
