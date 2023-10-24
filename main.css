@@ -25,4 +25,8 @@ footer {
     #filters div {
         display: block;
     }
+
+    #instruments div {
+        display: block;
+    }
 }
