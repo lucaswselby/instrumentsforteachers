@@ -53,7 +53,7 @@ const displayPrograms = () => {
     document.getElementsByTagName("TBODY")[0].innerHTML = "";
     programs.filter(program => {
         let programHasInstrument = false;
-        if (program.state === document.getElementById("state").value && program.bo === document.getElementById("program").value) {
+        if ((!document.getElementById("state").value || program.state === document.getElementById("state").value) && program.bo === document.getElementById("program").value) {
             (document.getElementById("program").value === "B" ? bandInstruments : orchestraInstruments).filter(instrument => document.getElementById(instrument) && document.getElementById(instrument).checked).forEach(instrument => {
                 if (program.needs.includes(instrument)) {
                     programHasInstrument = true;
