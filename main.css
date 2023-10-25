@@ -1,32 +1,100 @@
+/** {
+    border: solid red 1px;
+}*/
+
+:root {
+    --filtersBackground: lightblue;
+    --instrumentImgSide: 100px;
+    --h2Size: 1.5em;
+}
+
+html {
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    width: 100%;
+}
+
+#filtersHeading {
+    background-color: var(--filtersBackground);
+    padding-top: 2%;
+    padding-left: 30%;
+    margin: 0;
+    font-size: var(--h2Size);
+}
+#filters {
+    background-color: var(--filtersBackground);
+    width: 100%;
+    min-height: calc(100vh - var(--h2Size));
+}
+#stateFilter {
+    margin-left: 30%;
+    display: inline-block;
+}
+#state {
+    width: 3em;
+}
+#programFilter {
+    margin-left: 1em;
+    display: inline-block;
+}
+#instruments {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 10px;
+}
+.instrumentFilter {
+    background-color: white;
+    border: solid black 2px;
+}
+#filters h3 {
+    margin-right: 0;
+    margin-left: 30%;
+}
+#instruments figure {
+    height: calc(var(--instrumentImgSide) + 2em);
+}
+figure img {
+    height: var(--instrumentImgSide);
+    width: var(--instrumentImgSide);
+}
+
+table {
+    width: 100%;
+    height: 100vh;
+}
 th {
     border-bottom: solid black 2px;
 }
 tr:nth-child(even) {
     background-color: lightgray;
 }
-
-footer {
-    width: calc(100% - 10px);
-    height: 6em;
-    padding: 10px 0;
-    position: absolute;
-    bottom: 0;
+td {
+    vertical-align: top;
 }
-
-#filters div {
-    display: inline-block;
-}
-
-#state {
-    width: 3em;
+.school a, .teacher a {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color: black;
 }
 
 @media only screen and (max-width: 600px) {
-    #filters div {
-        display: block;
+    .school a, .teacher a {
+        pointer-events: auto;
+        cursor: pointer;
+        text-decoration: underline;
+        color: blue;
     }
-
-    #instruments div {
-        display: block;
+    .address, .email {
+        display: none;
     }
 }

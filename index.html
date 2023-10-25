@@ -15,9 +15,9 @@
 
     <body>
         <main>
-            <div id="checker"></div>
+            <h2 id="filtersHeading">Find a school music program to donate to:</h2>
             <div id="filters">
-                <div>
+                <div id="stateFilter">
                     <label for="state">State:</label>
                     <input list="states" name="state" id="state" value="AZ">
                     <datalist id="states">
@@ -73,15 +73,16 @@
                         <option value="WY"></option>
                     </datalist>
                 </div>
-                <div>
+                <div id="programFilter">
                     <label for="program">Program:</label>
                     <select name="program" id="program">
                         <option value="B">Band</option>
                         <option value="O">Orchestra</option>
                     </select>
                 </div>
-                <details id="instruments">
-                </details>
+                <h3>Pick your donation instruments:</h3>
+                <div id="instruments">
+                </div>
             </div>
 
             <table>
@@ -89,9 +90,9 @@
                     <tr>
                         <th>School</th>
                         <th>Phone</th>
-                        <th>Address</th>
+                        <th class="address">Address</th>
                         <th>Teacher</th>
-                        <th>Email</th>
+                        <th class="email">Email</th>
                         <th>Needs</th>
                     </tr>
                 </thead>

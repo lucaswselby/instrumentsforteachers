@@ -63,11 +63,11 @@ const displayPrograms = () => {
         return programHasInstrument;
     }).forEach(program => {
         document.getElementsByTagName("TBODY")[0].innerHTML += `<tr>
-            <td>${program.school}</td>
+            <td class="school"><a href="https://maps.google.com/maps?q=${program.address}" target="_blank">${program.school}</a></td>
             <td><a href="tel:+1${program.phone}">${formatPhoneNumber(program.phone)}</a></td>
-            <td><a href="https://maps.google.com/maps?q=${program.address}" target="_blank">${program.address}</a></td>
-            <td>${program.teacher}</td>
-            <td><a href="mailto:${program.email}" target="_blank">${program.email}</a></td>
+            <td class="address"><a href="https://maps.google.com/maps?q=${program.address}" target="_blank">${program.address}</a></td>
+            <td class="teacher"><a href="mailto:${program.email}" target="_blank">${program.teacher}</a></td>
+            <td class="email"><a href="mailto:${program.email}" target="_blank">${program.email}</a></td>
             <td>${program.needs.join(", ")}</td>
         </tr>`;
     });
@@ -75,11 +75,16 @@ const displayPrograms = () => {
 
 // instrument filters change based on the program
 const fillInstrumentsFilter = () => {
-    document.getElementById("instruments").innerHTML = "<summary>Instruments</summary>";
+    document.getElementById("instruments").innerHTML = "";
     (document.getElementById("program").value === "B" ? bandInstruments : orchestraInstruments).forEach(instrument => {
-        document.getElementById("instruments").innerHTML += `<div>
+        document.getElementById("instruments").innerHTML += `<div class="instrumentFilter">
             <input type="checkbox" name="${instrument}" id="${instrument}" checked>
-            <label for="${instrument}">${instrument}</label>
+            <label for="${instrument}">
+                <figure>
+                    <img src="./images/${instrument}.png" alt="${instrument}">
+                    <figcaption>${instrument}</figcaption>
+                </figure>
+            </label>
         </div>`
     });
     (document.getElementById("program").value === "B" ? bandInstruments : orchestraInstruments).forEach(instrument => {
