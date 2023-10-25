@@ -81,7 +81,7 @@ const fillInstrumentsFilter = () => {
             <input type="checkbox" name="${instrument}" id="${instrument}" checked>
             <label for="${instrument}">
                 <figure>
-                    <img src="./images/${instrument}.png" alt="${instrument}">
+                    <img src="./images/${instrument.replace("/", "").replace("\"", "").replace(".", "")}.png" alt="${instrument}">
                     <figcaption>${instrument}</figcaption>
                 </figure>
             </label>
