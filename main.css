@@ -23,7 +23,7 @@ body {
 
 #filtersHeading {
     background-color: var(--filtersBackground);
-    padding-top: 2%;
+    padding-top: 1%;
     padding-left: 30%;
     margin: 0;
     font-size: var(--h2Size);
@@ -31,7 +31,7 @@ body {
 #filters {
     background-color: var(--filtersBackground);
     width: 100%;
-    min-height: calc(100vh - var(--h2Size) - 2%);
+    min-height: calc(100vh - var(--h2Size) - 1%);
 }
 #stateFilter {
     margin-left: 30%;
@@ -74,7 +74,7 @@ figcaption {
 
 table {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
 }
 th {
     border-bottom: solid black 2px;
@@ -92,6 +92,10 @@ td {
     color: black;
 }
 
+footer {
+    padding: 1em 10px;
+}
+
 @media only screen and (max-width: 600px) {
     .school a, .teacher a {
         pointer-events: auto;
@@ -101,5 +105,9 @@ td {
     }
     .address, .email {
         display: none;
+    }
+
+    table {
+        min-height: 0;
     }
 }
