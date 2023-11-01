@@ -3,12 +3,10 @@
     --instrumentImgSide: 100px;
     --h2Size: 1.5em;
 }
-
 html {
     height: 100%;
     font-family: Arial, Helvetica, sans-serif;
 }
-
 body {
     position: relative;
     margin: 0;
@@ -73,24 +71,32 @@ figcaption {
     text-align: center;
 }
 
-table {
+#featuredPrograms {
+    width: calc(100%);
+    margin: 10px 0;
+    overflow: auto;
+    white-space: nowrap;
+}
+.featuredProgram {
+    border: solid black 2px;
+    display: inline-grid;
+    grid-template-columns: repeat(2, 50%);
+}
+.right {
+    padding-top: 1em;
+}
+.featuredProgram div div, .featuredProgram div h4 {
+    text-align: center;
+}
+.phone {
+    padding: 1em 0;
+}
+.needs {
+    text-align: left;
+    margin: 0;
+}
+.left img {
     width: 100%;
-    min-height: 100vh;
-}
-th {
-    border-bottom: solid black 2px;
-}
-tr:nth-child(even) {
-    background-color: lightgray;
-}
-td {
-    vertical-align: top;
-}
-.school a, .teacher a {
-    pointer-events: none;
-    cursor: default;
-    text-decoration: none;
-    color: black;
 }
 
 footer {
@@ -106,17 +112,7 @@ footer {
         display: inline-block;
     }
 
-    .school a, .teacher a {
-        pointer-events: auto;
-        cursor: pointer;
-        text-decoration: underline;
-        color: blue;
-    }
-    .address, .email {
-        display: none;
-    }
-
-    table {
-        min-height: 0;
+    .instrumentFilter:hover {
+        background-color: white;
     }
 }

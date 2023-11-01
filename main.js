@@ -1,10 +1,11 @@
 class Program {
-    constructor(state, bo, school, phone, address, teacher, email, needs, updated) {
+    constructor(state, bo, school, phone, address1, address2, teacher, email, needs, updated) {
         this._state = state;
         this._bo = bo;
         this._school = school;
         this._phone = phone;
-        this._address = address;
+        this._address1 = address1;
+        this._address2 = address2;
         this._teacher = teacher;
         this._email = email;
         this._needs = needs;
@@ -22,8 +23,11 @@ class Program {
     get phone() {
         return this._phone;
     }
-    get address() {
-        return this._address;
+    get address1() {
+        return this._address1;
+    }
+    get address2() {
+        return this._address2;
     }
     get teacher() {
         return this._teacher;
@@ -40,8 +44,8 @@ class Program {
 }
 
 // initializes school programs
-const rhodesO = new Program("AZ", "O", "Rhodes Junior High School", "4804722300", "1860 S Longmore, Mesa, AZ 85202", "Sarina Mountcastle", "samountcastle@mpsaz.org", ["3/4 Violins", "4/4 Violins"], "October 18, 2023");
-const rhodesB = new Program("AZ", "B", "Rhodes Junior High School", "4804722300", "1860 S Longmore, Mesa, AZ 85202", "Calle Thuneman", "cfthuneman@mpsaz.org", ["Trumpets"], "October 18, 2023");
+const rhodesO = new Program("AZ", "O", "Rhodes Junior High School", "4804722300", "1860 S Longmore", "Mesa, AZ 85202", "Sarina Mountcastle", "samountcastle@mpsaz.org", ["3/4 Violins", "4/4 Violins"], "October 18, 2023");
+const rhodesB = new Program("AZ", "B", "Rhodes Junior High School", "4804722300", "1860 S Longmore", "Mesa, AZ 85202", "Calle Thuneman", "cfthuneman@mpsaz.org", ["Trumpets"], "October 18, 2023");
 const programs = [rhodesO, rhodesB];
 
 // initializes instrument type arrays
@@ -50,8 +54,8 @@ const orchestraInstruments = ["1/4 Violins", "1/2 Violins", "3/4 Violins", "4/4 
 
 // displays all programs of a specific type within a certain state
 const displayPrograms = () => {
-    document.getElementsByTagName("TBODY")[0].innerHTML = "";
-    programs.filter(program => {
+    document.getElementById("featuredPrograms").innerHTML = "";
+    let filteredPrograms = programs.filter(program => {
         let programHasInstrument = false;
         if ((!document.getElementById("state").value || program.state === document.getElementById("state").value) && program.bo === document.getElementById("program").value) {
             (document.getElementById("program").value === "B" ? bandInstruments : orchestraInstruments).filter(instrument => document.getElementById(instrument) && document.getElementById(instrument).checked).forEach(instrument => {
@@ -61,16 +65,30 @@ const displayPrograms = () => {
             });
         }
         return programHasInstrument;
-    }).forEach(program => {
-        document.getElementsByTagName("TBODY")[0].innerHTML += `<tr>
-            <td class="school"><a href="https://maps.google.com/maps?q=${program.address}" target="_blank">${program.school}</a></td>
-            <td><a href="tel:+1${program.phone}">${formatPhoneNumber(program.phone)}</a></td>
-            <td class="address"><a href="https://maps.google.com/maps?q=${program.address}" target="_blank">${program.address}</a></td>
-            <td class="teacher"><a href="mailto:${program.email}" target="_blank">${program.teacher}</a></td>
-            <td class="email"><a href="mailto:${program.email}" target="_blank">${program.email}</a></td>
-            <td>${program.needs.join(", ")}</td>
-        </tr>`;
     });
+    if (filteredPrograms.length) {
+        filteredPrograms.forEach(program => {
+            document.getElementById("featuredPrograms").innerHTML += `<div class="featuredProgram">
+                <div class="left">
+                    <img src="./images/teachers/default image.png" alt="${program.teacher}">
+                    <div class="teacher">${program.teacher}</div>
+                    <div class"title">${program.bo === "B" ? "Band" : "Orchestra"} Teacher</div>
+                    <div class="email"><a href="mailto:${program.email}" target="_blank">${program.email}</a></div>
+                </div>
+                <div class="right">
+                    <h4 class="school">${program.school}</h4>
+                    <div class="address"><a href="https://maps.google.com/maps?q=${`${program.address1}, ${program.address2}`}" target="_blank">${program.address1}</br>${program.address2}</a></div>   
+                    <div class="phone"><a href="tel:+1${program.phone}">${formatPhoneNumber(program.phone)}</a></div>             
+                    <div>Needs:<ul class="needs">${program.needs.reduce((prev, curr) => {
+                        return prev + `<li>${curr}</li>`;
+                    }, "")}</ul></div>
+                </div>
+            </div>`;
+        });
+    }
+    else {
+        document.getElementById("featuredPrograms").innerHTML = `<h3>No programs match your criteria.</h3>`;
+    }
 };
 
 // instrument filters change based on the program
@@ -81,7 +99,7 @@ const fillInstrumentsFilter = () => {
             <input type="checkbox" name="${instrument}" id="${instrument}" checked>
             <label for="${instrument}">
                 <figure>
-                    <img src="./images/${instrument.replace("/", "").replace("\"", "").replace(".", "")}.png" alt="${instrument}">
+                    <img src="./images/instruments/${instrument.replace("/", "").replace("\"", "").replace(".", "")}.png" alt="${instrument}">
                     <figcaption>${instrument}</figcaption>
                 </figure>
             </label>
