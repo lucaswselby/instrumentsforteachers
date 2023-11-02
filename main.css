@@ -87,10 +87,10 @@ figcaption {
 .featuredProgram div {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     max-width: 200px;
 }
 .left {
+    justify-content: center;
     align-items: center;
 }
 .right {
