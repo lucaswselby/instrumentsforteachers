@@ -88,6 +88,7 @@ figcaption {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    max-width: 200px;
 }
 .left {
     align-items: center;
@@ -111,7 +112,6 @@ figcaption {
 }
 .left img {
     width: 100%;
-    max-width: 200px;
 }
 
 form {
