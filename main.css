@@ -72,21 +72,35 @@ figcaption {
 }
 
 #featuredPrograms {
-    width: calc(100%);
+    min-width: calc(100% - 2 * 10px);
     margin: 10px 0;
+    padding: 0 10px;
     overflow: auto;
     white-space: nowrap;
 }
 .featuredProgram {
     border: solid black 2px;
+    margin: 0 5px;
     display: inline-grid;
     grid-template-columns: repeat(2, 50%);
+}
+.featuredProgram div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.left {
+    align-items: center;
 }
 .right {
     padding-top: 1em;
 }
 .featuredProgram div div, .featuredProgram div h4 {
     text-align: center;
+    text-wrap: balance;
+}
+.email {
+    size: 100%;
 }
 .phone {
     padding: 1em 0;
@@ -97,6 +111,12 @@ figcaption {
 }
 .left img {
     width: 100%;
+    max-width: 200px;
+}
+
+form {
+    background-color: lightgray;
+    padding: 1em 0 1em 10px;
 }
 
 footer {
