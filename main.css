@@ -100,9 +100,6 @@ figcaption {
     text-align: center;
     text-wrap: balance;
 }
-.email {
-    size: 100%;
-}
 .phone {
     padding: 1em 0;
 }
@@ -110,7 +107,7 @@ figcaption {
     text-align: left;
     margin: 0;
 }
-.left img {
+.teacherPic {
     width: 100%;
 }
 

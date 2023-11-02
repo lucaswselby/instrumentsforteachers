@@ -70,7 +70,7 @@ const displayPrograms = () => {
         filteredPrograms.forEach(program => {
             document.getElementById("featuredPrograms").innerHTML += `<div class="featuredProgram">
                 <div class="left">
-                    <img src="./images/teachers/${`./images/teachers/${program.teacher}.png` ? program.teacher : "default image"}.png" alt="${program.teacher}">
+                    <img class="teacherPic" src="./images/teachers/${`./images/teachers/${program.teacher}.png` ? program.teacher : "default image"}.png" alt="${program.teacher}">
                     <div class="teacher">${program.teacher}</div>
                     <div class"title">${program.bo === "B" ? "Band" : "Orchestra"} Teacher</div>
                     <div class="email"><a href="mailto:${program.email}" target="_blank">${program.email}</a></div>
@@ -85,6 +85,17 @@ const displayPrograms = () => {
                 </div>
             </div>`;
         });
+
+        // resize emails by teacher picture width
+        for (let i = 0; i < document.getElementsByClassName("email").length; i++) {
+            let emailElement = document.getElementsByClassName("email")[i];
+            if (emailElement.clientWidth > document.getElementsByClassName("teacherPic")[0].clientWidth) {
+                let fontSize = 0;
+                while (emailElement.clientWidth < document.getElementsByClassName("teacherPic")[0].clientWidth) {
+                    emailElement.style.fontSize = `${++fontSize}px`;
+                }
+            }
+        }
     }
     else {
         document.getElementById("featuredPrograms").innerHTML = `<h3>No programs match your criteria.</h3>`;
