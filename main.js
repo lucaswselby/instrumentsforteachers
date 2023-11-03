@@ -72,7 +72,7 @@ const displayPrograms = () => {
             // display featured program
             document.getElementById("featuredPrograms").innerHTML += `<div class="featuredProgram">
                 <div class="left">
-                    <img class="teacherPic" src="./images/teachers/${`./images/teachers/${program.teacher}.png` ? program.teacher : "default image"}.png" alt="${program.teacher}">
+                    <img class="teacherPic" src="./images/teachers/${program.teacher}.png" onerror="if (this.src != './images/teachers/default image.png') this.src = './images/teachers/default image.png';" alt="${program.teacher}">
                     <div class="teacher">${program.teacher}</div>
                     <div class"title">${program.bo === "B" ? "Band" : "Orchestra"} Teacher</div>
                     <div class="email"><a href="mailto:${program.email}" target="_blank">${program.email}</a></div>
