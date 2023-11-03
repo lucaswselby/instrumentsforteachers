@@ -93,9 +93,6 @@ figcaption {
     justify-content: center;
     align-items: center;
 }
-.right {
-    padding-top: 1em;
-}
 .featuredProgram div div, .featuredProgram div h4 {
     text-align: center;
     text-wrap: balance;

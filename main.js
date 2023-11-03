@@ -67,7 +67,9 @@ const displayPrograms = () => {
         return programHasInstrument;
     });
     if (filteredPrograms.length) {
-        filteredPrograms.forEach(program => {
+        filteredPrograms.forEach(program => {            
+
+            // display featured program
             document.getElementById("featuredPrograms").innerHTML += `<div class="featuredProgram">
                 <div class="left">
                     <img class="teacherPic" src="./images/teachers/${`./images/teachers/${program.teacher}.png` ? program.teacher : "default image"}.png" alt="${program.teacher}">
@@ -95,6 +97,17 @@ const displayPrograms = () => {
                     emailElement.style.fontSize = `${++fontSize}px`;
                 }
             }
+        }
+
+        // resive featured programs to be the same height
+        let highest = document.getElementsByClassName("featuredProgram")[0].clientHeight;
+        for (let i = 1; i < document.getElementsByClassName("featuredProgram").length; i++) {
+            if (document.getElementsByClassName("featuredProgram")[i].clientHeight > highest) {
+                highest = document.getElementsByClassName("featuredProgram")[i].clientHeight;
+            }
+        }
+        for (let i = 0; i < document.getElementsByClassName("featuredProgram").length; i++) {
+            document.getElementsByClassName("featuredProgram")[i].style.height = `${highest}px`;
         }
     }
     else {
