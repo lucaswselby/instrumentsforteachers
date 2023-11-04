@@ -48,7 +48,8 @@ const rhodesO = new Program("AZ", "O", "Rhodes Junior High School", "4804722300"
 const rhodesB = new Program("AZ", "B", "Rhodes Junior High School", "4804722300", "1860 S Longmore", "Mesa, AZ 85202", "Calle Thuneman", "cfthuneman@mpsaz.org", ["Trumpets"], "October 18, 2023");
 const adamsB = new Program("AZ", "B", "Adams Elementary School", "4804724348", "738 S Longmore", "Mesa, AZ 85202", "Amber Budinger", "ahbudinger@mpsaz.org", ["Flutes", "Clarinets", "Bass Clarinets", "Alto Saxophones", "Tenor Saxophones", "Trumpets", "Trombones", "Baritones", "Euphoniums", "Bell Kits"], "November 2, 2023");
 const edisonB = new Program("AZ", "B", "Edison Elementary School", "4804725345", "45 N Horne", "Mesa, AZ 85203", "Amber Budinger", "ahbudinger@mpsaz.org", ["Flutes", "Clarinets", "Bass Clarinets", "Alto Saxophones", "Tenor Saxophones", "Trumpets", "Trombones", "Baritones", "Euphoniums", "Bell Kits"], "November 2, 2023");
-const programs = [rhodesO, rhodesB, adamsB, edisonB];
+const westwoodO = new Program("AZ", "O", "Westwood High School", "4804724441", "945 W Rio Salado Pkwy", "Mesa, AZ 85201", "Joshua Lynch", "jblynch@mpsaz.org", ["4/4 Violins", "15\" Violas", "15.5\" Violas", "16\" Violas"], "November 3, 2023");
+const programs = [rhodesO, rhodesB, adamsB, edisonB, westwoodO];
 
 // initializes instrument type arrays
 const bandInstruments = ["Piccolos", "Flutes", "Oboes", "Clarinets", "Bass Clarinets", "Alto Saxophones", "Tenor Saxophones", "Trumpets", "Cornets", "French Horns", "Trombones", "Baritones", "Euphoniums", "Bell Kits", "Percussion Learning Kits", "Drum Kits"];

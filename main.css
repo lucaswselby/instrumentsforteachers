@@ -83,13 +83,11 @@ figcaption {
     margin: 0 5px;
     display: inline-grid;
     grid-template-columns: repeat(2, 50%);
-}
-.featuredProgram div {
-    display: flex;
-    flex-direction: column;
-    max-width: 200px;
+    max-width: 400px;
 }
 .left {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
