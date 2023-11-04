@@ -55,6 +55,22 @@ const programs = [rhodesO, rhodesB, adamsB, edisonB, westwoodO];
 const bandInstruments = ["Piccolos", "Flutes", "Oboes", "Clarinets", "Bass Clarinets", "Alto Saxophones", "Tenor Saxophones", "Trumpets", "Cornets", "French Horns", "Trombones", "Baritones", "Euphoniums", "Bell Kits", "Percussion Learning Kits", "Drum Kits"];
 const orchestraInstruments = ["1/4 Violins", "1/2 Violins", "3/4 Violins", "4/4 Violins", "12\" Violas", "13\" Violas", "14\" Violas", "15\" Violas", "15.5\" Violas", "16\" Violas", "1/4 Cellos", "1/2 Cellos", "3/4 Cellos", "4/4 Cellos", "1/4 String Basses", "1/2 String Basses", "3/4 String Basses"];
 
+// resize emails by teacher picture width
+const resizeEmails = () => {
+    for (let i = 0; i < document.getElementsByClassName("email").length; i++) {
+        let emailElement = document.getElementsByClassName("email")[i];
+        emailElement.style.fontSize = "1em";
+        if (emailElement.clientWidth > document.getElementsByClassName("teacherPic")[0].clientWidth) {
+            let fontSize = 0;
+            emailElement.style.fontSize = `${++fontSize}px`;
+            while (emailElement.clientWidth < document.getElementsByClassName("teacherPic")[0].clientWidth) {
+                emailElement.style.fontSize = `${++fontSize}px`;
+            }
+            emailElement.style.fontSize = `${--fontSize}px`;
+        }
+    }
+}
+
 // displays all programs of a specific type within a certain state
 const displayPrograms = () => {
     document.getElementById("featuredPrograms").innerHTML = "";
@@ -91,16 +107,7 @@ const displayPrograms = () => {
             </div>`;
         });
 
-        // resize emails by teacher picture width
-        for (let i = 0; i < document.getElementsByClassName("email").length; i++) {
-            let emailElement = document.getElementsByClassName("email")[i];
-            if (emailElement.clientWidth > document.getElementsByClassName("teacherPic")[0].clientWidth) {
-                let fontSize = 0;
-                while (emailElement.clientWidth < document.getElementsByClassName("teacherPic")[0].clientWidth) {
-                    emailElement.style.fontSize = `${++fontSize}px`;
-                }
-            }
-        }
+        resizeEmails();
 
         // resize featured programs to be the same height
         let highest = document.getElementsByClassName("featuredProgram")[0].clientHeight;
@@ -154,3 +161,4 @@ document.getElementById("program").onchange = () => {
     fillInstrumentsFilter();
     displayPrograms();
 }
+window.onresize = resizeEmails;
