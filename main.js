@@ -102,7 +102,7 @@ const displayPrograms = () => {
             }
         }
 
-        // resive featured programs to be the same height
+        // resize featured programs to be the same height
         let highest = document.getElementsByClassName("featuredProgram")[0].clientHeight;
         for (let i = 1; i < document.getElementsByClassName("featuredProgram").length; i++) {
             if (document.getElementsByClassName("featuredProgram")[i].clientHeight > highest) {
