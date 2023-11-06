@@ -87,7 +87,7 @@ const displayPrograms = () => {
     let filteredPrograms = programs.filter(program => {
         let programHasInstrument = false;
         if ((!document.getElementById("state").value || program.state === document.getElementById("state").value) && program.bo === document.getElementById("program").value) {
-            (document.getElementById("program").value === "B" ? bandInstruments : orchestraInstruments).filter(instrument => document.getElementById(instrument) && document.getElementById(instrument).checked).forEach(instrument => {
+            (document.getElementById("program").value === "B" ? bandInstruments : orchestraInstruments).filter(instrument => document.getElementById(instrument.replaceAll("\"", "")) && document.getElementById(instrument.replaceAll("\"", "")).checked).forEach(instrument => {
                 if (program.needs.includes(instrument)) {
                     programHasInstrument = true;
                 }
@@ -142,8 +142,8 @@ const fillInstrumentsFilter = () => {
         let instrumentElement = document.createElement("div");
         instrumentElement.className = "instrumentFilter";
         instrumentElement.innerHTML = `<div class="instrumentFilter">
-            <input type="checkbox" name="${instrument}" id="${instrument}" checked>
-            <label for="${instrument}">
+            <input type="checkbox" name="${instrument.replaceAll("\"", "")}" id="${instrument.replaceAll("\"", "")}">
+            <label for="${instrument.replaceAll("\"", "")}">
                 <figure>
                     <img src="./images/instruments/${instrument.replace("/", "").replace("\"", "").replace(".", "")}.png" alt="${instrument}">
                     <figcaption>${instrument}</figcaption>
