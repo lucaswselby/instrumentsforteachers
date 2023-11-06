@@ -99,22 +99,23 @@ const displayPrograms = () => {
         filteredPrograms.forEach(program => {            
 
             // display featured program
-            document.getElementById("featuredPrograms").innerHTML += `<div class="featuredProgram">
-                <div class="left">
-                    <img class="teacherPic" src="./images/teachers/${program.teacher}.png" onerror="if (this.src != './images/teachers/default image.png') this.src = './images/teachers/default image.png';" alt="${program.teacher}">
-                    <div class="teacher">${program.teacher}</div>
-                    <div class"title">${program.bo === "B" ? "Band" : "Orchestra"} Teacher</div>
-                    <div class="email"><a href="mailto:${program.email}" target="_blank">${program.email}</a></div>
-                </div>
-                <div class="right">
-                    <h4 class="school">${program.school}</h4>
-                    <div class="address"><a href="https://maps.google.com/maps?q=${`${program.address1}, ${program.address2}`}" target="_blank">${program.address1}</br>${program.address2}</a></div>   
-                    <div class="phone"><a href="tel:+1${program.phone}">${formatPhoneNumber(program.phone)}</a></div>             
-                    <div>Needs:<ul class="needs">${program.needs.reduce((prev, curr) => {
-                        return prev + `<li>${curr}</li>`;
-                    }, "")}</ul></div>
-                </div>
+            let programElement = document.createElement("div");
+            programElement.className = "featuredProgram";
+            programElement.innerHTML = `<div class="left">
+                <img class="teacherPic" src="./images/teachers/${program.teacher}.png" onerror="if (this.src != './images/teachers/default image.png') this.src = './images/teachers/default image.png';" alt="${program.teacher}">
+                <div class="teacher">${program.teacher}</div>
+                <div class"title">${program.bo === "B" ? "Band" : "Orchestra"} Teacher</div>
+                <div class="email"><a href="mailto:${program.email}" target="_blank">${program.email}</a></div>
+            </div>
+            <div class="right">
+                <h4 class="school">${program.school}</h4>
+                <div class="address"><a href="https://maps.google.com/maps?q=${program.address1}, ${program.address2}" target="_blank">${program.address1}</br>${program.address2}</a></div>   
+                <div class="phone"><a href="tel:+1${program.phone}">${formatPhoneNumber(program.phone)}</a></div>             
+                <div>Needs:<ul class="needs">${program.needs.reduce((prev, curr) => {
+                    return prev + `<li>${curr}</li>`;
+                }, "")}</ul></div>
             </div>`;
+            document.getElementById("featuredPrograms").appendChild(programElement);
         });
 
         resizeEmails();
