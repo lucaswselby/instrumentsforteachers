@@ -55,6 +55,16 @@ const programs = [rhodesO, rhodesB, adamsB, edisonB, westwoodO];
 const bandInstruments = ["Piccolos", "Flutes", "Oboes", "Clarinets", "Bass Clarinets", "Alto Saxophones", "Tenor Saxophones", "Trumpets", "Cornets", "French Horns", "Trombones", "Baritones", "Euphoniums", "Bell Kits", "Percussion Learning Kits", "Drum Kits"];
 const orchestraInstruments = ["1/4 Violins", "1/2 Violins", "3/4 Violins", "4/4 Violins", "12\" Violas", "13\" Violas", "14\" Violas", "15\" Violas", "15.5\" Violas", "16\" Violas", "1/4 Cellos", "1/2 Cellos", "3/4 Cellos", "4/4 Cellos", "1/4 String Basses", "1/2 String Basses", "3/4 String Basses"];
 
+// source: https://stackoverflow.com/questions/8358084/regular-expression-to-reformat-a-us-phone-number-in-javascript
+function formatPhoneNumber(phoneNumberString) {
+    var cleaned = ('' + phoneNumberString).replace(/\D/g, '');
+    var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+    if (match) {
+        return '(' + match[1] + ') ' + match[2] + '-' + match[3];
+    }
+    return null;
+}
+
 // resize emails by teacher picture width
 const resizeEmails = () => {
     for (let i = 0; i < document.getElementsByClassName("email").length; i++) {
@@ -129,7 +139,9 @@ const displayPrograms = () => {
 const fillInstrumentsFilter = () => {
     document.getElementById("instruments").innerHTML = "";
     (document.getElementById("program").value === "B" ? bandInstruments : orchestraInstruments).forEach(instrument => {
-        document.getElementById("instruments").innerHTML += `<div class="instrumentFilter">
+        let instrumentElement = document.createElement("div");
+        instrumentElement.className = "instrumentFilter";
+        instrumentElement.innerHTML = `<div class="instrumentFilter">
             <input type="checkbox" name="${instrument}" id="${instrument}" checked>
             <label for="${instrument}">
                 <figure>
@@ -138,21 +150,10 @@ const fillInstrumentsFilter = () => {
                 </figure>
             </label>
         </div>`
-    });
-    (document.getElementById("program").value === "B" ? bandInstruments : orchestraInstruments).forEach(instrument => {
-        document.getElementById("instruments").onclick = displayPrograms;
+        instrumentElement.onclick = displayPrograms;
+        document.getElementById("instruments").appendChild(instrumentElement);
     });
 };
-
-// source: https://stackoverflow.com/questions/8358084/regular-expression-to-reformat-a-us-phone-number-in-javascript
-function formatPhoneNumber(phoneNumberString) {
-    var cleaned = ('' + phoneNumberString).replace(/\D/g, '');
-    var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
-    if (match) {
-        return '(' + match[1] + ') ' + match[2] + '-' + match[3];
-    }
-    return null;
-}
 
 fillInstrumentsFilter();
 displayPrograms();
