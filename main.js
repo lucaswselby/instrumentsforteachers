@@ -143,7 +143,7 @@ const fillInstrumentsFilter = () => {
         let instrumentElement = document.createElement("div");
         instrumentElement.className = "instrumentFilter";
         instrumentElement.innerHTML = `<div class="instrumentFilter">
-            <input type="checkbox" name="${instrument.replaceAll("\"", "")}" id="${instrument.replaceAll("\"", "")}">
+            <input type="checkbox" name="${instrument.replaceAll("\"", "")}" id="${instrument.replaceAll("\"", "")}" checked>
             <label for="${instrument.replaceAll("\"", "")}">
                 <figure>
                     <img src="./images/instruments/${instrument.replace("/", "").replace("\"", "").replace(".", "")}.png" alt="${instrument}">
