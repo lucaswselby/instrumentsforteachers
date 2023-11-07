@@ -55,7 +55,8 @@ const whitmanB = new Program("AZ", "B", "Whitman Elementary School", "4804725000
 const guerreroB = new Program("AZ", "B", "Guerrero Elementary School", "4804720200", "463 S Alma School Rd", "Mesa, AZ 85210", "William Suit", "wmsuit@mpsaz.org", ["Flutes", "Clarinets", "Alto Saxophones", "Trumpets", "Trombones", "Baritones", "Euphoniums", "Bell Kits"], "November 7, 2023");
 const bushB = new Program("AZ", "B", "Barbara Bush Elementary School", "4804728500", "4925 E Ingram St", "Mesa, AZ 85205", "Althea Thomas", "amthomas@mpsaz.org", ["Flutes", "Oboes", "Clarinets", "Alto Saxophones", "Trumpets", "Cornets", "French Horns", "Trombones", "Baritones", "Euphoniums", "Bell Kits", "Percussion Learning Kits"], "November 7, 2023");
 const salkB = new Program("AZ", "B", "Jonas Salk Elementary School", "4804728400", "7029 E Brown Rd", "Mesa, AZ 85207", "Althea Thomas", "amthomas@mpsaz.org", ["Flutes", "Clarinets", "Bass Clarinets", "Alto Saxophones", "Tenor Saxophones", "Trumpets", "Cornets", "French Horns", "Trombones", "Baritones", "Euphoniums", "Bell Kits", "Percussion Learning Kits"], "November 7, 2023");
-const programs = [rhodesO, rhodesB, adamsB, edisonB, westwoodO, brintonB, oconnorB, whitmanB, guerreroB, bushB, salkB];
+const highlandArtsO = new Program("AZ", "O", "Highland Arts Elementary School", "4804727648", "3042 E Adobe St", "Mesa, AZ 85213", "VerRona Grandil", "vgrandil@mpsaz.org", ["1/2 Violins", "3/4 Cellos", "4/4 Cellos", "1/2 String Basses"], "November 7, 2023");
+const programs = [rhodesO, rhodesB, adamsB, edisonB, westwoodO, brintonB, oconnorB, whitmanB, guerreroB, bushB, salkB, highlandArtsO];
 
 // initializes instrument type arrays
 const bandInstruments = ["Piccolos", "Flutes", "Oboes", "Clarinets", "Bass Clarinets", "Alto Saxophones", "Tenor Saxophones", "Trumpets", "Cornets", "French Horns", "Trombones", "Baritones", "Euphoniums", "Bell Kits", "Percussion Learning Kits", "Drum Kits"];
