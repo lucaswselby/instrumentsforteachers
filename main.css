@@ -69,6 +69,7 @@ figure img {
 }
 figcaption {
     text-align: center;
+    width: var(--instrumentImgSide);
 }
 
 #featuredPrograms {
@@ -124,6 +125,16 @@ footer {
         display: inline-block;
     }
 
+    #instruments {
+        flex-flow: column nowrap;
+        gap: 3px;
+    }
+    #instruments figure {
+        margin: 0 auto;
+    }
+    figcaption {
+        width: auto;
+    }
     .instrumentFilter:hover {
         background-color: white;
     }
