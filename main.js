@@ -108,7 +108,6 @@ const resizeEmails = () => {
 
 // displays all programs of a specific type within a certain state
 const displayPrograms = () => {
-    document.getElementById("featuredPrograms").innerHTML = "";
     let filteredPrograms = programs.filter(program => {
         let programHasInstrument = false;
         if ((!document.getElementById("state").value || program.state === document.getElementById("state").value) && program.bo === document.getElementById("program").value) {
@@ -120,6 +119,8 @@ const displayPrograms = () => {
         }
         return programHasInstrument;
     });
+    document.getElementById("numberOfPrograms").innerHTML = `${filteredPrograms.length} program${filteredPrograms.length === 1 ? "" : "s"} match${filteredPrograms.length === 1 ? "es" : ""} your search criteria.`;
+    document.getElementById("featuredPrograms").innerHTML = "";
     if (filteredPrograms.length) {
         let highest = 0;
         filteredPrograms.forEach(program => {            

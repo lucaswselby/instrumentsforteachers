@@ -72,6 +72,9 @@ figcaption {
     width: var(--instrumentImgSide);
 }
 
+#numberOfPrograms {
+    margin: 15px;
+}
 #featuredPrograms {
     min-width: calc(100% - 2 * 10px);
     margin: 10px 0;
