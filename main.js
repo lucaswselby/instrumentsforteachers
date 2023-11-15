@@ -90,7 +90,6 @@ function formatPhoneNumber(phoneNumberString) {
 const resizeEmail = (emailElement) => {
     emailElement.style.fontSize = "1em";
     if (emailElement.clientWidth > document.getElementsByClassName("teacherPic")[0].clientWidth) {
-        console.log(`${emailElement.clientWidth} > ${document.getElementsByClassName("teacherPic")[0].clientWidth}`);
         let fontSize = 0;
         emailElement.style.fontSize = `${++fontSize}px`;
         while (emailElement.clientWidth < document.getElementsByClassName("teacherPic")[0].clientWidth) {
@@ -98,7 +97,6 @@ const resizeEmail = (emailElement) => {
         }
         emailElement.style.fontSize = `${--fontSize}px`;
     }
-    console.log(`${emailElement.clientWidth} <= ${document.getElementsByClassName("teacherPic")[0].clientWidth}`);
 }
 const resizeEmails = () => {
     for (let i = 0; i < document.getElementsByClassName("email").length; i++) {
@@ -154,7 +152,6 @@ const displayPrograms = () => {
         });
 
         // resize featured programs to be the same height and resize emails to fit
-        console.log(document.getElementsByClassName("featuredProgram").length);
         for (let i = 0; i < document.getElementsByClassName("featuredProgram").length; i++) {
             document.getElementsByClassName("featuredProgram")[i].style.height = `${highest}px`;
             resizeEmail(document.getElementsByClassName("email")[i]);
