@@ -81,6 +81,8 @@ figcaption {
     padding: 0 10px;
     overflow: auto;
     white-space: nowrap;
+    display: flex;
+    flex-flow: row nowrap;
 }
 .featuredProgram {
     border: solid black 2px;
@@ -88,6 +90,7 @@ figcaption {
     display: inline-grid;
     grid-template-columns: repeat(2, 50%);
     width: 400px;
+    flex-shrink: 0;
 }
 .left {
     display: flex;
@@ -108,6 +111,10 @@ figcaption {
 }
 .teacherPic {
     width: 100%;
+}
+.right {
+    display: flex;
+    flex-direction: column;
 }
 
 form {
