@@ -65,7 +65,8 @@ const salkB = new Program("AZ", "B", "Jonas Salk Elementary School", "4804728400
 const bashaB = new Program("AZ", "B", "Basha High School", "4802099349", "5990 S Val Vista Dr", "Chandler, AZ 85249", "Miles Denny", "denny.miles@cusd80.com", ["Piccolos", "Flutes", "Oboes", "Clarinets", "Alto Saxophones", "Tenor Saxophones", "Trumpets", "Cornets", "French Horns", "Trombones", "Baritones", "Euphoniums", "Drum Kits"], "November 7, 2023");
 const arizonaCollegePrepMiddleB = new Program("AZ", "B", "Arizona College Prep Middle School", "4808835400", "1150 W Erie St", "Chandler, AZ 85224", "Julianne Colwell", "colwell.julianne@cusd80.com", ["Flutes", "Clarinets", "Alto Saxophones", "Tenor Saxophones", "Trumpets", "Trombones", "Baritones", "Euphoniums"], "November 8, 2023");
 const perryB = new Program("AZ", "B", "Perry High School", "4802242960", "1919 E Queen Creek Rd", "Gilbert, AZ 85297", "Benjamin Sampayan", "sampayan.benjamin@cusd80.com", ["Piccolos", "Flutes", "Oboes", "Clarinets", "Bass Clarinets", "Alto Saxophones", "Tenor Saxophones", "Trumpets", "Cornets", "French Horns", "Trombones", "Baritones", "Euphoniums", "Drum Kits"], "November 9, 2023");
-const programs = [bushB, salkB, bashaB, arizonaCollegePrepMiddleB, perryB];
+const mesquiteB = new Program("AZ", "B", "Mesquite High School", "4806324750", "500 S McQueen Rd", "Gilbert, AZ 85233", "Tony Latham", "tony.latham@gilbertschools.net", ["Trumpets", "Cornets", "French Horns", "Trombones", "Baritones", "Euphoniums", "Bell Kits", "Percussion Learning Kits", "Drum Kits"], "November 14, 2023");
+const programs = [bushB, salkB, bashaB, arizonaCollegePrepMiddleB, perryB, mesquiteB];
 
 // initializes instrument type arrays
 const bandInstruments = ["Piccolos", "Flutes", "Oboes", "Clarinets", "Bass Clarinets", "Alto Saxophones", "Tenor Saxophones", "Trumpets", "Cornets", "French Horns", "Trombones", "Baritones", "Euphoniums", "Bell Kits", "Percussion Learning Kits", "Drum Kits"];
