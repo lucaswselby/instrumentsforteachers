@@ -83,18 +83,22 @@ function formatPhoneNumber(phoneNumberString) {
 }
 
 // resize emails by teacher picture width
+const resizeEmail = (emailElement) => {
+    emailElement.style.fontSize = "1em";
+    if (emailElement.clientWidth > document.getElementsByClassName("teacherPic")[0].clientWidth) {
+        console.log(`${emailElement.clientWidth} > ${document.getElementsByClassName("teacherPic")[0].clientWidth}`);
+        let fontSize = 0;
+        emailElement.style.fontSize = `${++fontSize}px`;
+        while (emailElement.clientWidth < document.getElementsByClassName("teacherPic")[0].clientWidth) {
+            emailElement.style.fontSize = `${++fontSize}px`;
+        }
+        emailElement.style.fontSize = `${--fontSize}px`;
+    }
+    console.log(`${emailElement.clientWidth} <= ${document.getElementsByClassName("teacherPic")[0].clientWidth}`);
+}
 const resizeEmails = () => {
     for (let i = 0; i < document.getElementsByClassName("email").length; i++) {
-        let emailElement = document.getElementsByClassName("email")[i];
-        emailElement.style.fontSize = "1em";
-        if (emailElement.clientWidth > document.getElementsByClassName("teacherPic")[0].clientWidth) {
-            let fontSize = 0;
-            emailElement.style.fontSize = `${++fontSize}px`;
-            while (emailElement.clientWidth < document.getElementsByClassName("teacherPic")[0].clientWidth) {
-                emailElement.style.fontSize = `${++fontSize}px`;
-            }
-            emailElement.style.fontSize = `${--fontSize}px`;
-        }
+        resizeEmail(document.getElementsByClassName("email")[i]);
     }
 }
 
@@ -113,18 +117,23 @@ const displayPrograms = () => {
         return programHasInstrument;
     });
     if (filteredPrograms.length) {
+        let highest = 0;
         filteredPrograms.forEach(program => {            
 
             // display featured program
             let programElement = document.createElement("div");
             programElement.className = "featuredProgram";
-            programElement.innerHTML = `<div class="left">
-                <img class="teacherPic" src="./images/teachers/${program.teacher}.png" onerror="if (this.src != './images/teachers/default image.png') this.src = './images/teachers/default image.png';" alt="${program.teacher}">
-                <div class="teacher">${program.teacher}</div>
-                <div class"title">${program.bo === "B" ? "Band" : "Orchestra"} Teacher</div>
-                <div class="email"><a href="mailto:${program.email}" target="_blank">${program.email}</a></div>
-            </div>
-            <div class="right">
+            let leftElement = document.createElement("div");
+            leftElement.className = "left";
+            leftElement.innerHTML = `<img class="teacherPic" src="./images/teachers/${program.teacher}.png" onerror="if (this.src != './images/teachers/default image.png') this.src = './images/teachers/default image.png';" alt="${program.teacher}">
+            <div class="teacher">${program.teacher}</div>
+            <div class"title">${program.bo === "B" ? "Band" : "Orchestra"} Teacher</div>`;
+            let emailElement = document.createElement("div");
+            emailElement.className = "email";
+            emailElement.innerHTML = `<a href="mailto:${program.email}" target="_blank">${program.email}</a>`;
+            leftElement.appendChild(emailElement);
+            programElement.appendChild(leftElement);
+            programElement.innerHTML += `<div class="right">
                 <h4 class="school">${program.school}</h4>
                 <div class="address"><a href="https://maps.google.com/maps?q=${program.address1}, ${program.address2}" target="_blank">${program.address1}</br>${program.address2}</a></div>   
                 <div class="phone"><a href="tel:+1${program.phone}">${formatPhoneNumber(program.phone)}</a></div>             
@@ -133,19 +142,17 @@ const displayPrograms = () => {
                 }, "")}</ul></div>
             </div>`;
             document.getElementById("featuredPrograms").appendChild(programElement);
+
+            if (programElement.clientHeight > highest) {
+                highest = programElement.clientHeight;
+            }
         });
 
-        resizeEmails();
-
-        // resize featured programs to be the same height
-        let highest = document.getElementsByClassName("featuredProgram")[0].clientHeight;
-        for (let i = 1; i < document.getElementsByClassName("featuredProgram").length; i++) {
-            if (document.getElementsByClassName("featuredProgram")[i].clientHeight > highest) {
-                highest = document.getElementsByClassName("featuredProgram")[i].clientHeight;
-            }
-        }
+        // resize featured programs to be the same height and resize emails to fit
+        console.log(document.getElementsByClassName("featuredProgram").length);
         for (let i = 0; i < document.getElementsByClassName("featuredProgram").length; i++) {
             document.getElementsByClassName("featuredProgram")[i].style.height = `${highest}px`;
+            resizeEmail(document.getElementsByClassName("email")[i]);
         }
     }
     else {
@@ -178,4 +185,3 @@ document.getElementById("program").onchange = () => {
     fillInstrumentsFilter();
     displayPrograms();
 }
-window.onresize = resizeEmails;

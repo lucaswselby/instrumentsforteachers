@@ -84,7 +84,7 @@ figcaption {
     margin: 0 5px;
     display: inline-grid;
     grid-template-columns: repeat(2, 50%);
-    max-width: 400px;
+    width: 400px;
 }
 .left {
     display: flex;
