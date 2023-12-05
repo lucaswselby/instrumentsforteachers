@@ -90,6 +90,7 @@ figcaption {
     display: inline-grid;
     grid-template-columns: repeat(2, 50%);
     width: 400px;
+    max-width: 100%;
     flex-shrink: 0;
 }
 .left {
@@ -105,10 +106,6 @@ figcaption {
 .phone {
     padding: 1em 0;
 }
-.needs {
-    text-align: left;
-    margin: 0;
-}
 .teacherPic {
     width: 100%;
 }
@@ -116,10 +113,14 @@ figcaption {
     display: flex;
     flex-direction: column;
 }
+.needs {
+    text-wrap: balance;
+    margin: 0;
+}
 
 form {
     background-color: lightgray;
-    padding: 1em 0 1em 10px;
+    padding: 1em 10px;
 }
 
 footer {
