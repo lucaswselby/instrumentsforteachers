@@ -114,6 +114,7 @@ figcaption {
     flex-direction: column;
 }
 .needs {
+    text-align: left;
     text-wrap: balance;
     margin: 0;
 }
