@@ -18,25 +18,29 @@ body {
 #filtersHeading {
     background-color: var(--filtersBackground);
     padding-top: 1%;
-    padding-left: 30%;
+    text-align: center;
     margin: 0;
     font-size: var(--h2Size);
+    text-wrap: balance;
 }
 #filters {
     background-color: var(--filtersBackground);
     width: 100%;
     min-height: calc(100vh - var(--h2Size) - 1%);
+    text-align: center;
 }
-#stateFilter {
-    margin-left: 30%;
+#programFilter {
+    display: inline-block;
+}
+#stateFilter, #zipCodeFilter {
+    margin-left: 1vw;
     display: inline-block;
 }
 #state {
     width: 3em;
 }
-#programFilter {
-    margin-left: 1em;
-    display: inline-block;
+#zipCode {
+    width: 6em;
 }
 
 #instruments {
@@ -54,10 +58,6 @@ body {
 }
 .instrumentFilter:hover {
     background-color: lightgray;
-}
-#filters h3 {
-    margin-right: 0;
-    margin-left: 30%;
 }
 #instruments figure {
     height: calc(var(--instrumentImgSide) + 2em);
@@ -130,11 +130,7 @@ footer {
 }
 
 @media only screen and (max-width: 600px) {
-    #filtersHeading {
-        padding-left: 10%;
-    }
-    #stateFilter {
-        margin-left: 10%;
+    #programFilter {
         display: inline-block;
     }
 

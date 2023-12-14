@@ -83,6 +83,14 @@ const programs = [rhodesO, rhodesB, adamsB, edisonB, westwoodO, brintonB, oconno
 const bandInstruments = ["Piccolos", "Flutes", "Oboes", "Clarinets", "Bass Clarinets", "Alto Saxophones", "Tenor Saxophones", "Trumpets", "Cornets", "French Horns", "Trombones", "Baritones", "Euphoniums", "Bell Kits", "Percussion Learning Kits", "Drum Kits"];
 const orchestraInstruments = ["1/4 Violins", "1/2 Violins", "3/4 Violins", "4/4 Violins", "12\" Violas", "13\" Violas", "14\" Violas", "15\" Violas", "15.5\" Violas", "16\" Violas", "1/4 Cellos", "1/2 Cellos", "3/4 Cellos", "4/4 Cellos", "1/4 String Basses", "1/2 String Basses", "3/4 String Basses"];
 
+// changing the zip code resorts the programs
+const defaultZip = "85003";
+let zip = defaultZip;
+document.getElementById("zipCode").onchange = () => {
+    zip = document.getElementById("zipCode").value;
+    loadPrograms();
+};
+
 // source: https://stackoverflow.com/questions/8358084/regular-expression-to-reformat-a-us-phone-number-in-javascript
 function formatPhoneNumber(phoneNumberString) {
     var cleaned = ('' + phoneNumberString).replace(/\D/g, '');
@@ -112,7 +120,8 @@ const resizeEmails = () => {
 }
 
 // displays all programs of a specific type within a certain state
-const displayPrograms = () => {
+const displayPrograms = async () => {
+    // filter programs by state, program type, and instruments
     let filteredPrograms = programs.filter(program => {
         let programHasInstrument = false;
         if ((!document.getElementById("state").value || program.state === document.getElementById("state").value) && program.bo === document.getElementById("program").value) {
@@ -124,6 +133,21 @@ const displayPrograms = () => {
         }
         return programHasInstrument;
     });
+
+    // organize programs by distance from reference
+    try {
+        filteredPrograms = await sortAddressesByDistance(zip, filteredPrograms);
+    } catch (error) {
+        try {
+            document.getElementById("zipCode").value = defaultZip;
+            zip = defaultZip;
+            filteredPrograms = await sortAddressesByDistance(zip, filteredPrograms);
+        }
+        catch (error) {
+            console.error(error.message);
+        }
+    }
+
     document.getElementById("numberOfPrograms").innerHTML = `${filteredPrograms.length} program${filteredPrograms.length === 1 ? "" : "s"} match${filteredPrograms.length === 1 ? "es" : ""} your search criteria.`;
     document.getElementById("featuredPrograms").innerHTML = "";
     if (filteredPrograms.length) {
@@ -182,15 +206,97 @@ const fillInstrumentsFilter = () => {
                 <figcaption>${instrument}</figcaption>
             </figure>
         </label>`
-        instrumentElement.onclick = displayPrograms;
+        instrumentElement.onclick = loadPrograms;
         document.getElementById("instruments").appendChild(instrumentElement);
     });
 };
 
+const loadPrograms = () => {
+    document.getElementById("numberOfPrograms").innerHTML = "";
+    document.getElementById("featuredPrograms").innerHTML = "Loading...";
+    displayPrograms();
+}
+
 fillInstrumentsFilter();
 displayPrograms();
-document.getElementById("state").onchange = displayPrograms;
+document.getElementById("state").onchange = loadPrograms;
 document.getElementById("program").onchange = () => {
     fillInstrumentsFilter();
-    displayPrograms();
+    loadPrograms();
+}
+
+// source: Chat GPT
+async function geocodeAddress(address) {
+    const apiKey = 'AIzaSyCKf8NObN0TXEdBosdn5aE4noSAX_1dVaI';
+        const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${apiKey}`);
+
+    if (!response.ok) {
+        console.error(`Geocoding failed. HTTP status code: ${response.status}`);
+        throw new Error('Geocoding failed');
+    }
+
+    const data = await response.json();
+
+    if (data.status === 'ZERO_RESULTS') {
+        console.error(`Geocoding failed. No results found for the address: ${address}`);
+        throw new Error('No results found for the address');
+    }
+
+    if (data.status !== 'OK') {
+            console.error(`Geocoding failed. API status: ${data.status}`);
+    throw new Error('Geocoding failed');
+    }
+
+    if (data.results.length > 0) {
+        const location = data.results[0].geometry.location;
+        return { lat: location.lat, lng: location.lng };
+    } else {
+        console.error('Geocoding failed. No results found.');
+        throw new Error('Geocoding failed');
+    }
+}  
+function calculateDistance(point1, point2) {
+    const R = 6371; // Radius of the Earth in kilometers
+    const dLat = (point2.lat - point1.lat) * (Math.PI / 180);
+    const dLon = (point2.lng - point1.lng) * (Math.PI / 180);
+    const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(point1.lat * (Math.PI / 180)) * Math.cos(point2.lat * (Math.PI / 180)) *
+        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    const distance = R * c; // Distance in kilometers
+    return distance;
+}
+// Function to get distance between an address and the reference address
+async function getDistanceToReference(referenceAddress, address) {
+    try {
+        const point = await geocodeAddress(address);
+        const referencePoint = await geocodeAddress(referenceAddress);
+        const distance = calculateDistance(referencePoint, point);
+        return distance;
+    } catch (error) {
+        throw error; // Rethrow the error for the caller to handle
+    }
+}
+// Function to add distanceFromReference attribute and sort by distance
+async function sortAddressesByDistance(referenceAddress, addressObjects) {
+    const distances = await Promise.all(
+        addressObjects.map(async (obj) => ({
+            state: obj.state,
+            bo: obj.bo,
+            school: obj.school,
+            phone: obj.phone,
+            address1: obj.address1,
+            address2: obj.address2,
+            teacher: obj.teacher,
+            email: obj.email,
+            needs: obj.needs,
+            updated: obj.updated,
+            distanceFromReference: await getDistanceToReference(referenceAddress, `${obj.address1}, ${obj.address2}`)
+        }))
+    );
+
+    distances.sort((a, b) => a.distanceFromReference - b.distanceFromReference);
+
+    return distances;
 }

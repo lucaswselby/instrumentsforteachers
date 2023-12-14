@@ -17,6 +17,13 @@
         <main>
             <h2 id="filtersHeading">Find a school music program to donate to:</h2>
             <div id="filters">
+                <div id="programFilter">
+                    <label for="program">Program:</label>
+                    <select name="program" id="program">
+                        <option value="B">Band</option>
+                        <option value="O">Orchestra</option>
+                    </select>
+                </div>
                 <div id="stateFilter">
                     <label for="state">State:</label>
                     <input list="states" name="state" id="state" value="AZ">
@@ -73,12 +80,9 @@
                         <option value="WY"></option>
                     </datalist>
                 </div>
-                <div id="programFilter">
-                    <label for="program">Program:</label>
-                    <select name="program" id="program">
-                        <option value="B">Band</option>
-                        <option value="O">Orchestra</option>
-                    </select>
+                <div id="zipCodeFilter">
+                    <label for="zipCode">Zip Code:</label>
+                    <input type="text" name="zipCode" id="zipCode" pattern="[0-9]{5}" value="85003">
                 </div>
                 <h3>Pick your donation instruments:</h3>
                 <div id="instruments">
@@ -86,8 +90,7 @@
             </div>
 
             <h4 id="numberOfPrograms"></h4>
-            <div id="featuredPrograms">
-            </div>
+            <div id="featuredPrograms">Loading...</div>
 
             <form action="https://formspree.io/f/mnqklklq" method="POST">
                 <div>Don't see your school on this list? Submit your teacher's email and I will contact them!</div>
