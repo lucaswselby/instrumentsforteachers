@@ -227,7 +227,7 @@ document.getElementById("program").onchange = () => {
 
 // source: Chat GPT
 async function geocodeAddress(address) {
-    const apiKey = 'AIzaSyCKf8NObN0TXEdBosdn5aE4noSAX_1dVaI';
+    const apiKey = 'AIzaSyDz-C8Op71O9KJvoGOY1QvnYRFZFetOyYU';
         const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${apiKey}`);
 
     if (!response.ok) {

@@ -55,6 +55,7 @@ body {
     background-color: white;
     border: solid black 2px;
     transition: background-color .5s;
+    text-align: left;
 }
 .instrumentFilter:hover {
     background-color: lightgray;
