@@ -84,12 +84,12 @@ const bandInstruments = ["Piccolos", "Flutes", "Oboes", "Clarinets", "Bass Clari
 const orchestraInstruments = ["1/4 Violins", "1/2 Violins", "3/4 Violins", "4/4 Violins", "12\" Violas", "13\" Violas", "14\" Violas", "15\" Violas", "15.5\" Violas", "16\" Violas", "1/4 Cellos", "1/2 Cellos", "3/4 Cellos", "4/4 Cellos", "1/4 String Basses", "1/2 String Basses", "3/4 String Basses"];
 
 // changing the zip code resorts the programs
-/*const defaultZip = "85003";
+const defaultZip = "85003";
 let zip = defaultZip;
 document.getElementById("zipCode").onchange = () => {
     zip = document.getElementById("zipCode").value;
     loadPrograms();
-};*/
+};
 
 // source: https://stackoverflow.com/questions/8358084/regular-expression-to-reformat-a-us-phone-number-in-javascript
 function formatPhoneNumber(phoneNumberString) {
@@ -135,7 +135,7 @@ const displayPrograms = async () => {
     });
 
     // organize programs by distance from reference
-    /*try {
+    try {
         filteredPrograms = await sortAddressesByDistance(zip, filteredPrograms);
     } catch (error) {
         try {
@@ -146,7 +146,7 @@ const displayPrograms = async () => {
         catch (error) {
             console.error(error.message);
         }
-    }*/
+    }
 
     document.getElementById("numberOfPrograms").innerHTML = `${filteredPrograms.length} program${filteredPrograms.length === 1 ? "" : "s"} match${filteredPrograms.length === 1 ? "es" : ""} your search criteria.`;
     document.getElementById("featuredPrograms").innerHTML = "";
