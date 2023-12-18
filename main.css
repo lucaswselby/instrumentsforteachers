@@ -78,7 +78,7 @@ figcaption {
 }
 #featuredPrograms {
     min-width: calc(100% - 2 * 10px);
-    margin: 10px 0;
+    margin-top: 10px;
     padding: 0 10px;
     overflow: auto;
     white-space: nowrap;
@@ -93,6 +93,9 @@ figcaption {
     width: 400px;
     max-width: 100%;
     flex-shrink: 0;
+}
+.featuredProgram:hover {
+    box-shadow: 0 0 5px 10px gray inset;
 }
 .left {
     display: flex;
@@ -123,6 +126,10 @@ figcaption {
 form {
     background-color: lightgray;
     padding: 1em 10px;
+}
+
+gmp-map {
+    height: 100%;
 }
 
 footer {

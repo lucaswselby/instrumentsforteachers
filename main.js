@@ -52,7 +52,7 @@ const westwoodO = new Program("AZ", "O", "Westwood High School", "4804724441", "
 const brintonB = new Program("AZ", "B", "Brinton Elementary", "4804724075", "11455 E Sunland Ave", "Mesa, AZ 85208", "Pat Zaur", "pmzaur@mpsaz.org", ["Flutes", "Clarinets", "Bass Clarinets", "Alto Saxophones", "Tenor Saxophones", "Trumpets", "Cornets", "French Horns", "Trombones", "Baritones", "Euphoniums", "Bell Kits", "Percussion Learning Kits"], "November 7, 2023");
 const oconnorB = new Program("AZ", "B", "O'Connor Elementary", "4804727850", "4840 E Adobe Rd", "Mesa, AZ 85205", "Pat Zaur", "pmzaur@mpsaz.org", ["Flutes", "Clarinets", "Bass Clarinets", "Alto Saxophones", "Tenor Saxophones", "Trumpets", "Cornets", "French Horns", "Trombones", "Baritones", "Euphoniums", "Bell Kits", "Percussion Learning Kits"], "November 7, 2023");
 const whitmanB = new Program("AZ", "B", "Whitman Elementary School", "4804725000", "1829 N Grand", "Mesa, AZ 85201", "William Suit", "wmsuit@mpsaz.org", ["Flutes", "Clarinets", "Alto Saxophones", "Trumpets", "Trombones", "Bell Kits"], "November 7, 2023");
-const guerreroB = new Program("AZ", "B", "Guerrero Elementary School", "4804720200", "463 S Alma School Rd", "Mesa, AZ 85210", "William Suit", "wmsuit@mpsaz.org", ["Flutes", "Clarinets", "Alto Saxophones", "Trumpets", "Trombones", "Baritones", "Euphoniums", "Bell Kits"], "November 7, 2023");
+const guerreroB = new Program("AZ", "B", "Pedro Guerrero Elementary School", "4804720200", "463 S Alma School Rd", "Mesa, AZ 85210", "William Suit", "wmsuit@mpsaz.org", ["Flutes", "Clarinets", "Alto Saxophones", "Trumpets", "Trombones", "Baritones", "Euphoniums", "Bell Kits"], "November 7, 2023");
 //const highlandArtsO = new Program("AZ", "O", "Highland Arts Elementary School", "4804727648", "3042 E Adobe St", "Mesa, AZ 85213", "VerRona Grandil", "vgrandil@mpsaz.org", ["1/2 Violins", "3/4 Cellos", "4/4 Cellos", "1/2 String Basses"], "November 7, 2023");
 const fremontO = new Program("AZ", "O", "Fremont Junior High School", "4804728252", "1001 N Power Rd", "Mesa, AZ 85205", "Lucas Buterbaugh", "lbuterbaugh@mpsaz.org", ["1/2 Violins", "3/4 Violins", "4/4 Violins", "13\" Violas", "14\" Violas", "15\" Violas", "15.5\" Violas", "16\" Violas", "1/2 Cellos", "3/4 Cellos", "4/4 Cellos"], "November 7, 2023");
 const hellenKellerO = new Program("AZ", "O", "Helen Keller Elementary School", "4804726154", "1445 E Hilton Ave", "Mesa, AZ 85204", "Christopher Jacobson", "cmjacobson@mpsaz.org", ["1/4 Violins", "1/2 Violins", "3/4 Violins", "3/4 Cellos", "1/4 String Basses", "1/2 String Basses"], "November 7, 2023");
@@ -73,8 +73,8 @@ const desertRidgeJuniorO = new Program("AZ", "O", "Desert Ridge Junior High Scho
 const desertVistaB = new Program("AZ", "B", "Desert Vista High School", "6025254114", "16440 S 32nd St", "Phoenix, AZ 85048", "Michael Krill", "mkrill@tuhsd.k12.az.us", ["Piccolos", "Flutes", "Oboes", "Clarinets", "Bass Clarinets", "Alto Saxophones", "Tenor Saxophones", "Trumpets", "French Horns", "Trombones", "Euphoniums"], "November 15, 2023");
 const southValleyJuniorB = new Program("AZ", "B", "South Valley Junior High School", "4808550015", "2034 S Lindsay Rd", "Gilbert, AZ 85295", "John Bannon \"Jack\"", "john.bannon@gilbertschools.net", ["Piccolos", "Flutes", "Oboes", "Clarinets", "Bass Clarinets", "Alto Saxophones", "Tenor Saxophones", "Trumpets", "Cornets", "French Horns", "Trombones", "Baritones", "Euphoniums"], "November 19, 2023");
 const mesquiteJuniorB = new Program("AZ", "B", "Mesquite Junior High School", "4809261433", "130 W Mesquite St", "Gilbert, AZ 85233", "Christopher Michael Hover", "christopher.hover@gilbertschools.net", ["Piccolos", "Flutes", "Oboes", "Clarinets", "Bass Clarinets", "Alto Saxophones", "Tenor Saxophones", "Trumpets", "Cornets", "French Horns", "Trombones", "Baritones", "Euphoniums", "Bell Kits", "Percussion Learning Kits", "Drum Kits"], "November 20, 2023");
-const harmonyProjectB = new Program("AZ", "B", "Harmony Project Phoenix", "4802278607", "2 N Central Ave", "Phoenix, AZ 85004", "Harmony Project Phoenix", "info@harmonyprojectphx.org", ["Piccolos", "Flutes", "Oboes", "Clarinets", "Bass Clarinets", "Alto Saxophones", "Tenor Saxophones", "Trumpets", "Cornets", "French Horns", "Trombones", "Baritones", "Euphoniums", "Bell Kits", "Percussion Learning Kits", "Drum Kits"], "November 28, 2023");
-const harmonyProjectO = new Program("AZ", "O", "Harmony Project Phoenix", "4802278607", "2 N Central Ave", "Phoenix, AZ 85004", "Harmony Project Phoenix", "info@harmonyprojectphx.org", ["1/4 Violins", "1/2 Violins", "3/4 Violins", "4/4 Violins", "12\" Violas", "13\" Violas", "14\" Violas", "15\" Violas", "15.5\" Violas", "16\" Violas", "1/4 Cellos", "1/2 Cellos", "3/4 Cellos", "4/4 Cellos", "1/4 String Basses", "1/2 String Basses", "3/4 String Basses"], "November 28, 2023");
+const harmonyProjectB = new Program("AZ", "B", "Harmony Project Phoenix", "4802278607", "2 N Central Ave suite 1800", "Phoenix, AZ 85004", "Harmony Project Phoenix", "info@harmonyprojectphx.org", ["Piccolos", "Flutes", "Oboes", "Clarinets", "Bass Clarinets", "Alto Saxophones", "Tenor Saxophones", "Trumpets", "Cornets", "French Horns", "Trombones", "Baritones", "Euphoniums", "Bell Kits", "Percussion Learning Kits", "Drum Kits"], "November 28, 2023");
+const harmonyProjectO = new Program("AZ", "O", "Harmony Project Phoenix", "4802278607", "2 N Central Ave suite 1800", "Phoenix, AZ 85004", "Harmony Project Phoenix", "info@harmonyprojectphx.org", ["1/4 Violins", "1/2 Violins", "3/4 Violins", "4/4 Violins", "12\" Violas", "13\" Violas", "14\" Violas", "15\" Violas", "15.5\" Violas", "16\" Violas", "1/4 Cellos", "1/2 Cellos", "3/4 Cellos", "4/4 Cellos", "1/4 String Basses", "1/2 String Basses", "3/4 String Basses"], "November 28, 2023");
 const apacheJunctionHighO = new Program("AZ", "O", "Apache Junction High School", "4809821110", "2525 S Ironwood Dr", "Apache Junction, AZ 85120", "Jill Osborne", "jill.osborne@goaj.net", ["1/2 Violins", "3/4 Violins", "4/4 Violins", "12\" Violas", "13\" Violas", "14\" Violas", "15\" Violas", "15.5\" Violas", "16\" Violas", "1/4 Cellos", "1/2 Cellos", "3/4 Cellos", "4/4 Cellos", "1/4 String Basses", "1/2 String Basses", "3/4 String Basses"], "December 4, 2023");
 const cactusCanyonJuniorO = new Program("AZ", "O", "Cactus Canyon Junior High School", "4809821110", "2525 S Ironwood Dr", "Apache Junction, AZ 85120", "Jill Osborne", "jill.osborne@goaj.net", ["1/2 Violins", "3/4 Violins", "4/4 Violins", "12\" Violas", "13\" Violas", "14\" Violas", "15\" Violas", "15.5\" Violas", "16\" Violas", "1/4 Cellos", "1/2 Cellos", "3/4 Cellos", "4/4 Cellos", "1/4 String Basses", "1/2 String Basses", "3/4 String Basses"], "December 4, 2023");
 const programs = [rhodesO, rhodesB, adamsB, edisonB, westwoodO, brintonB, oconnorB, whitmanB, guerreroB, fremontO, hellenKellerO, johnsonO, whittierB, highlandArtsB, shepherdO, bushB, salkB, bashaB, arizonaCollegePrepMiddleB, perryB, mesquiteB, gilbertHighO, greenfieldJuniorB, desertRidgeB, desertRidgeJuniorO, desertVistaB, southValleyJuniorB, mesquiteJuniorB, harmonyProjectB, harmonyProjectO, apacheJunctionHighO, cactusCanyonJuniorO];
@@ -87,6 +87,9 @@ const orchestraInstruments = ["1/4 Violins", "1/2 Violins", "3/4 Violins", "4/4 
 const defaultZip = "85003";
 let zip = defaultZip;
 document.getElementById("zipCode").onchange = () => {
+    if (isNaN(document.getElementById("zipCode").value) || document.getElementById("zipCode").value.length !== 5) {
+        document.getElementById("zipCode").value = defaultZip;
+    }
     zip = document.getElementById("zipCode").value;
     loadPrograms();
 };
@@ -119,8 +122,7 @@ const resizeEmails = () => {
     }
 }
 
-// displays all programs of a specific type within a certain state
-const displayPrograms = async () => {
+const filterSortPrograms = async () => {
     // filter programs by state, program type, and instruments
     let filteredPrograms = programs.filter(program => {
         let programHasInstrument = false;
@@ -134,7 +136,7 @@ const displayPrograms = async () => {
         return programHasInstrument;
     });
 
-    // organize programs by distance from reference
+    // organize programs by distance from zip code
     try {
         filteredPrograms = await sortAddressesByDistance(zip, filteredPrograms);
     } catch (error) {
@@ -148,12 +150,16 @@ const displayPrograms = async () => {
         }
     }
 
+    return filteredPrograms;
+}
+
+// displays all programs of a specific type within a certain state
+const displayPrograms = async (filteredPrograms) => {
     document.getElementById("numberOfPrograms").innerHTML = `${filteredPrograms.length} program${filteredPrograms.length === 1 ? "" : "s"} match${filteredPrograms.length === 1 ? "es" : ""} your search criteria.`;
     document.getElementById("featuredPrograms").innerHTML = "";
     if (filteredPrograms.length) {
         let highest = 0;
-        filteredPrograms.forEach(program => {            
-
+        filteredPrograms.forEach(program => {
             // display featured program
             let programElement = document.createElement("div");
             programElement.className = "featuredProgram";
@@ -182,10 +188,25 @@ const displayPrograms = async () => {
             }
         });
 
-        // resize featured programs to be the same height and resize emails to fit
-        for (let i = 0; i < document.getElementsByClassName("featuredProgram").length; i++) {
+        // first program should be gray since it's displayed on the map
+        document.getElementsByClassName("featuredProgram")[0].style.backgroundColor = "lightgray";
+
+        for (let i = 0; i < filteredPrograms.length; i++) {
+            // resize featured programs to be the same height and resize emails to fit
             document.getElementsByClassName("featuredProgram")[i].style.height = `${highest}px`;
             resizeEmail(document.getElementsByClassName("email")[i]);
+
+            // when a program is clicked, display it on the map
+            document.getElementsByClassName("featuredProgram")[i].onclick = () => {
+                // chage background colors to highlight featured program
+                for (let i = 0; i < filteredPrograms.length; i++) {
+                    document.getElementsByClassName("featuredProgram")[i].style.backgroundColor = "white";
+                }
+                document.getElementsByClassName("featuredProgram")[i].style.backgroundColor = "lightgray";
+
+                // display featured program on map
+                initMap(filteredPrograms[i]);
+            }
         }
     }
     else {
@@ -211,14 +232,15 @@ const fillInstrumentsFilter = () => {
     });
 };
 
-const loadPrograms = () => {
+const loadPrograms = async () => {
     document.getElementById("numberOfPrograms").innerHTML = "";
     document.getElementById("featuredPrograms").innerHTML = "Loading...";
-    displayPrograms();
+    let filteredPrograms = await filterSortPrograms();
+    displayPrograms(filteredPrograms);
+    initMap(filteredPrograms[0]);
 }
 
 fillInstrumentsFilter();
-displayPrograms();
 document.getElementById("state").onchange = loadPrograms;
 document.getElementById("program").onchange = () => {
     fillInstrumentsFilter();
@@ -299,4 +321,34 @@ async function sortAddressesByDistance(referenceAddress, addressObjects) {
     distances.sort((a, b) => a.distanceFromReference - b.distanceFromReference);
 
     return distances;
+}
+document.addEventListener('DOMContentLoaded', function() {
+    loadPrograms();
+});
+async function initMap(program) {
+    // Create a geocoder to convert the address to coordinates
+    var geocoder = new google.maps.Geocoder();
+
+    // Create a map centered at a default location
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 15,
+        center: await geocodeAddress(`${program.address1}, ${program.address2}`)
+    });
+
+    // Use the geocoder to get the coordinates for the address
+    geocoder.geocode({ 'address': `${program.address1}, ${program.address2}` }, function (results, status) {
+        if (status === 'OK') {
+            // Set the map center to the coordinates of the address
+            map.setCenter(results[0].geometry.location);
+
+            // Add markers for the addresses
+            var marker = new google.maps.Marker({
+                map: map,
+                position: results[0].geometry.location,
+                title: program.school
+            });
+        } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+        }
+    });
 }
