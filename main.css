@@ -116,6 +116,7 @@ figcaption {
 .right {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 .needs {
     text-align: left;
