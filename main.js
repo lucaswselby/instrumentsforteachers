@@ -194,6 +194,7 @@ const displayPrograms = async (filteredPrograms) => {
         for (let i = 0; i < filteredPrograms.length; i++) {
             // resize featured programs to be the same height and resize emails to fit
             document.getElementsByClassName("featuredProgram")[i].style.height = `${highest}px`;
+            document.getElementsByClassName("school")[i].style.textWrap = "balance"; // schools names sometimes don't wrap
             resizeEmail(document.getElementsByClassName("email")[i]);
 
             // when a program is clicked, display it on the map
