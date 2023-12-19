@@ -94,9 +94,6 @@ figcaption {
     max-width: 100%;
     flex-shrink: 0;
 }
-.featuredProgram:hover {
-    box-shadow: 0 0 5px 10px gray inset;
-}
 .left {
     display: flex;
     flex-direction: column;
